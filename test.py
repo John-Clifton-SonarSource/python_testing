@@ -47,12 +47,17 @@ def example4():
 
 # trying to trigger https://next.sonarqube.com/sonarqube/coding_rules?languages=py&types=VULNERABILITY&open=pythonsecurity%3AS5146 - didn't work
 # removed use of 'Flask' to try to avoid it triggering a hotspot instead
-# changed function name and API endpoint to not be 'redirect' so that it didn't collide with the import of 'redirect'
+# changed function name and API endpoint to not be 'redirect' so that it didn't collide with the import of 'redirect' - raised PR to fix this
 
-@app.route("/redirecting")
-def redirecting():
+@app.route("/redirecting_orig")
+def redirecting_orig():
     url = request.args["url"]
     return redirect(url) # Noncompliant
+
+@app.route("/redirecting2")
+def redirecting2():
+    url = request.args["url"]
+    return redirect(url_for(url))
 
 
 a = 10
