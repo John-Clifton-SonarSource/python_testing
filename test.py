@@ -47,7 +47,7 @@ def example4():
     return "OK"
 
 # trying to trigger https://next.sonarqube.com/sonarqube/coding_rules?languages=py&types=VULNERABILITY&open=pythonsecurity%3AS5146
-app = Flask("example")
+# removed use of 'Flask' to try to avoid it triggering a hotspot instead
 
 @app.route("/redirect")
 def redirect():
