@@ -2,7 +2,7 @@ from flask import make_response, request
 import json
 from flask import Flask, redirect
 
-# trying to trigger https://next.sonarqube.com/sonarqube/coding_rules?languages=py&types=VULNERABILITY&open=pythonsecurity%3AS5131
+# trying to trigger https://next.sonarqube.com/sonarqube/coding_rules?languages=py&types=VULNERABILITY&open=pythonsecurity%3AS5131 - didn't work
 
 @app.route('/xss')
 def index():
@@ -17,7 +17,7 @@ def index():
     return make_response(request.args.get("input"))
 
 
-# trying to trigger https://next.sonarqube.com/sonarqube/coding_rules?open=pythonsecurity:S5334&rule_key=pythonsecurity:S5334
+# trying to trigger https://next.sonarqube.com/sonarqube/coding_rules?open=pythonsecurity:S5334&rule_key=pythonsecurity:S5334 - worked
 
 @app.route("/")
 def example():
@@ -45,7 +45,7 @@ def example4():
     eval(f"product_{operation}()") # Noncompliant
     return "OK"
 
-# trying to trigger https://next.sonarqube.com/sonarqube/coding_rules?languages=py&types=VULNERABILITY&open=pythonsecurity%3AS5146
+# trying to trigger https://next.sonarqube.com/sonarqube/coding_rules?languages=py&types=VULNERABILITY&open=pythonsecurity%3AS5146 - didn't work
 # removed use of 'Flask' to try to avoid it triggering a hotspot instead
 # changed function name and API endpoint to not be 'redirect' so that it didn't collide with the import of 'redirect'
 
