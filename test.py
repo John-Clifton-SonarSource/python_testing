@@ -2,6 +2,8 @@ from flask import make_response, request
 import json
 from flask import Flask, redirect
 
+app = Flask(__name__)
+
 # trying to trigger https://next.sonarqube.com/sonarqube/coding_rules?languages=py&types=VULNERABILITY&open=pythonsecurity%3AS5131 - didn't work
 
 @app.route('/xss')
@@ -13,7 +15,7 @@ def index():
 # same as above, trying a different bit of code
 
 @app.route('/xss2')
-def index():
+def index2():
     return make_response(request.args.get("input"))
 
 
