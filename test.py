@@ -21,4 +21,4 @@ def example3():
     operation = allowed[request.args.get("operationId")]
     eval(f"product_{operation}()")
 
-
+    return "OK"
