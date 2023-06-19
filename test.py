@@ -11,7 +11,6 @@ def index():
 
 
 # same as above, trying a different bit of code
-from flask import make_response, request
 
 @app.route('/xss2')
 def index():
@@ -48,9 +47,10 @@ def example4():
 
 # trying to trigger https://next.sonarqube.com/sonarqube/coding_rules?languages=py&types=VULNERABILITY&open=pythonsecurity%3AS5146
 # removed use of 'Flask' to try to avoid it triggering a hotspot instead
+# changed function name and API endpoint to not be 'redirect' so that it didn't collide with the import of 'redirect'
 
-@app.route("/redirect")
-def redirect():
+@app.route("/redirecting")
+def redirecting():
     url = request.args["url"]
     return redirect(url) # Noncompliant
 
