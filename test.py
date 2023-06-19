@@ -27,3 +27,16 @@ def example4():
     operation = request.args.get("operation")
     eval(f"product_{operation}()") # Noncompliant
     return "OK"
+
+a = 10
+b =+ a
+
+# trying to trigger https://next.sonarqube.com/sonarqube/coding_rules?languages=py&types=VULNERABILITY&open=pythonsecurity%3AS5131
+
+from flask import make_response, request
+import json
+
+@app.route('/xss')
+def index():
+    json = json.dumps({ "data": request.args.get("input") })
+    return make_response(json)
