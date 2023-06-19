@@ -40,3 +40,11 @@ import json
 def index():
     json = json.dumps({ "data": request.args.get("input") })
     return make_response(json)
+
+
+# same as above, trying a different bit of code
+from flask import make_response, request
+
+@app.route('/xss2')
+def index():
+    return make_response(request.args.get("input"))
