@@ -1,5 +1,6 @@
 from flask import make_response, request
 import json
+from flask import Flask, redirect
 
 # trying to trigger https://next.sonarqube.com/sonarqube/coding_rules?languages=py&types=VULNERABILITY&open=pythonsecurity%3AS5131
 
@@ -44,6 +45,15 @@ def example4():
     operation = request.args.get("operation")
     eval(f"product_{operation}()") # Noncompliant
     return "OK"
+
+# trying to trigger https://next.sonarqube.com/sonarqube/coding_rules?languages=py&types=VULNERABILITY&open=pythonsecurity%3AS5146
+app = Flask("example")
+
+@app.route("/redirect")
+def redirect():
+    url = request.args["url"]
+    return redirect(url) # Noncompliant
+
 
 a = 10
 b =+ a
