@@ -8,17 +8,22 @@ def example():
     eval(f"product_{operation}()") # Noncompliant
     return "OK"
 
-@app.route("/")
+@app.route("/2")
 def example2():
     operation = request.args.get("operation")
     eval(f"product_{operation}()") # Noncompliant
     return "OK"
 
-
-@app.route("/")
+@app.route("/3")
 def example3():
     allowed = ["add", "remove", "update"]
     operation = allowed[request.args.get("operationId")]
     eval(f"product_{operation}()")
+    return "OK"
 
+
+@app.route("/4")
+def example4():
+    operation = request.args.get("operation")
+    eval(f"product_{operation}()") # Noncompliant
     return "OK"
