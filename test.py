@@ -1,6 +1,23 @@
-# trying to trigger https://next.sonarqube.com/sonarqube/coding_rules?open=pythonsecurity:S5334&rule_key=pythonsecurity:S5334
+from flask import make_response, request
+import json
 
-from flask import request
+# trying to trigger https://next.sonarqube.com/sonarqube/coding_rules?languages=py&types=VULNERABILITY&open=pythonsecurity%3AS5131
+
+@app.route('/xss')
+def index():
+    json = json.dumps({ "data": request.args.get("input") })
+    return make_response(json)
+
+
+# same as above, trying a different bit of code
+from flask import make_response, request
+
+@app.route('/xss2')
+def index():
+    return make_response(request.args.get("input"))
+
+
+# trying to trigger https://next.sonarqube.com/sonarqube/coding_rules?open=pythonsecurity:S5334&rule_key=pythonsecurity:S5334
 
 @app.route("/")
 def example():
@@ -31,20 +48,3 @@ def example4():
 a = 10
 b =+ a
 
-# trying to trigger https://next.sonarqube.com/sonarqube/coding_rules?languages=py&types=VULNERABILITY&open=pythonsecurity%3AS5131
-
-from flask import make_response, request
-import json
-
-@app.route('/xss')
-def index():
-    json = json.dumps({ "data": request.args.get("input") })
-    return make_response(json)
-
-
-# same as above, trying a different bit of code
-from flask import make_response, request
-
-@app.route('/xss2')
-def index():
-    return make_response(request.args.get("input"))
