@@ -17,9 +17,8 @@ def example2():
 
 @app.route("/")
 def example3():
-    operation = request.args.get("operation")
-    eval(f"product_{operation}()") # Noncompliant
-    return "OK"
+    allowed = ["add", "remove", "update"]
+    operation = allowed[request.args.get("operationId")]
+    eval(f"product_{operation}()")
 
-test_var = 5
-print(test_var)
+
