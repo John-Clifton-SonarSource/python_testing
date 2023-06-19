@@ -8,11 +8,15 @@ def example():
     eval(f"product_{operation}()") # Noncompliant
     return "OK"
 
-
-from flask import request
-
 @app.route("/")
 def example2():
+    operation = request.args.get("operation")
+    eval(f"product_{operation}()") # Noncompliant
+    return "OK"
+
+
+@app.route("/")
+def example3():
     operation = request.args.get("operation")
     eval(f"product_{operation}()") # Noncompliant
     return "OK"
