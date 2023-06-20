@@ -1,6 +1,7 @@
+<?php 
+
 echo("Hello World");
-print("No, hello to you!");
-include 'code.php';
+include('code.php');
 
 switch ($variable) {
   case 0:
@@ -12,3 +13,6 @@ switch ($variable) {
 }
 
 return(1);
+
+?> 
+
