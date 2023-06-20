@@ -79,8 +79,8 @@ def get_users():
 # going after Django version of issue https://next.sonarqube.com/sonarqube/coding_rules?languages=py&types=VULNERABILITY&open=pythonsecurity%3AS5146
 from django.http import HttpResponseRedirect
 
-def redirect():
-    url = request.GET.get("url", "/")
+def redirect_again():
+    url = request.GET.get("url", "/testing_redirect")
     return HttpResponseRedirect(url)  # Noncompliant
 
 a = 10
