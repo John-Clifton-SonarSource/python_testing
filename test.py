@@ -75,6 +75,14 @@ def get_users():
     conn = sqlite3.connect('example')
     conn.cursor().execute(sql % (user)) # Noncompliant
 
+
+# going after Django version of issue https://next.sonarqube.com/sonarqube/coding_rules?languages=py&types=VULNERABILITY&open=pythonsecurity%3AS5146
+from django.http import HttpResponseRedirect
+
+def redirect():
+    url = request.GET.get("url", "/")
+    return HttpResponseRedirect(url)  # Noncompliant
+
 a = 10
 b =+ a
 
