@@ -29,7 +29,9 @@ def complicated_code(input):
             if c < d:
                 input += d
                 if a < c:
-                    input += a
+                    while counter < 10:
+                        input += a
+                        counter += 1
                     if a < d:
                         input += d
                         if c < d:
@@ -41,7 +43,7 @@ def complicated_code(input):
 
 @app.route('/xss2')
 def index2():
-      
+
     return complicated_code(request.args.get("input"))
 
 @app.route("/")
