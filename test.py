@@ -1,8 +1,11 @@
 from flask import make_response, request
 import json
 from flask import Flask, redirect
+from flask_wtf import CSRFProtect
 
 app = Flask(__name__)
+csrf = CSRFProtect()
+csrf.init_app(app)
 
 # trying to trigger https://next.sonarqube.com/sonarqube/coding_rules?languages=py&types=VULNERABILITY&open=pythonsecurity%3AS5131 - didn't work
 
@@ -84,3 +87,5 @@ def redirect_again():
 
 a = 10
 b =+ a
+
+my_string = "test"
