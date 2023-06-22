@@ -14,28 +14,28 @@ def update_and_show_counter(counter):
 counter = 10
 update_and_show_counter(counter)
 
-def complicated_code(text):
+def complicated_code(input):
     a=1
     b=2
     c=3
     d=4
 
     if a in (a,b,c,d):
-        return(c+input)
+        input += c
         if a < b:
-            return(b+input)
+            input += b
             if c < d:
-                return(d+input)
+                input += d
                 if a < c:
-                    return(a+input)
+                    input += a
                     if a < d:
-                        return(d)
+                        input += d
                         if c < d:
-                            return(a+input)
-                            if a > b:
-                                return(c)
+                            input += d
+                            if a < b:
+                                input += a
 
-    return 0
+    return input
 
 @app.route('/xss2')
 def index2():
