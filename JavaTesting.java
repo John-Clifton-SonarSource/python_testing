@@ -29,9 +29,120 @@ public class JavaTesting {
                 }
             }
         }
+
+        if (a < b) {
+            total++;
+            if (b < c) {
+                total++;
+                if (c < d) {
+                    total++;
+                    if (e < f) {
+                        total++;
+                        if (f < g) {
+                            total++;
+                            if (g < h) {
+                                total++;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    
+
+        if (a < b) {
+            total++;
+            if (b < c) {
+                total++;
+                if (c < d) {
+                    total++;
+                    if (e < f) {
+                        total++;
+                        if (f < g) {
+                            total++;
+                            if (g < h) {
+                                total++;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+           
+        if (a < b) {
+            total++;
+            if (b < c) {
+                total++;
+                if (c < d) {
+                    total++;
+                    if (e < f) {
+                        total++;
+                        if (f < g) {
+                            total++;
+                            if (g < h) {
+                                total++;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        if (a < b) {
+            total++;
+            if (b < c) {
+                total++;
+                if (c < d) {
+                    total++;
+                    if (e < f) {
+                        total++;
+                        if (f < g) {
+                            total++;
+                            if (g < h) {
+                                total++;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        if (a < b) {
+            total++;
+            if (b < c) {
+                total++;
+                if (c < d) {
+                    total++;
+                    if (e < f) {
+                        total++;
+                        if (f < g) {
+                            total++;
+                            if (g < h) {
+                                total++;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        if (a < b) {
+            total++;
+            if (b < c) {
+                total++;
+                if (c < d) {
+                    total++;
+                    if (e < f) {
+                        total++;
+                        if (f < g) {
+                            total++;
+                            if (g < h) {
+                                total++;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     
         return total;
     }
-
 
 }
