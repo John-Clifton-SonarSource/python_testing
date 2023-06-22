@@ -8,6 +8,8 @@ csrf = CSRFProtect()
 csrf.init_app(app)
 
 def update_and_show_counter(counter):
+    counter += 1
+
     counter =+ 8
     print(counter)
 
@@ -35,12 +37,12 @@ def complicated_code(input):
                             if a < b:
                                 input += a
 
-    return input
+    return make_response(input)
 
 @app.route('/xss2')
 def index2():
-    
-    return make_response(complicated_code(request.args.get("input")))
+      
+    return complicated_code(request.args.get("input"))
 
 @app.route("/")
 def example():
