@@ -1,14 +1,18 @@
-echo("Hello World");
-print("No, hello to you!");
-include 'code.php';
+<?php
+
+$variable = 0;
 
 switch ($variable) {
   case 0:
-    do_something();
+    print "Case 0 triggered\n";
     break;
   default:
-    do_something_else();
+  print "Default triggered\n";
     break;
 }
 
-return(1);
+echo("Hello World!");
+
+return 1;
+
+?>

@@ -1,8 +1,11 @@
 from flask import make_response, request
 import json
 from flask import Flask, redirect
+from flask_wtf import CSRFProtect
 
 app = Flask(__name__)
+csrf = CSRFProtect()
+csrf.init_app(app)
 
 # trying to trigger https://next.sonarqube.com/sonarqube/coding_rules?languages=py&types=VULNERABILITY&open=pythonsecurity%3AS5131 - didn't work
 
@@ -12,7 +15,7 @@ def index():
     return make_response(json)
 
 
-# same as above, trying a different bit of code
+# same as above (https://next.sonarqube.com/sonarqube/coding_rules?languages=py&types=VULNERABILITY&open=pythonsecurity%3AS5131), trying a different bit of code - this one worked!
 
 @app.route('/xss2')
 def index2():
@@ -40,14 +43,13 @@ def example3():
     eval(f"product_{operation}()")
     return "OK"
 
-
 @app.route("/4")
 def example4():
     operation = request.args.get("operation")
     eval(f"product_{operation}()") # Noncompliant
     return "OK"
 
-# trying to trigger https://next.sonarqube.com/sonarqube/coding_rules?languages=py&types=VULNERABILITY&open=pythonsecurity%3AS5146 - didn't work
+# trying to trigger https://next.sonarqube.com/sonarqube/coding_rules?languages=py&types=VULNERABILITY&open=pythonsecurity%3AS5146 - worked, but examples wrong
 # removed use of 'Flask' to try to avoid it triggering a hotspot instead - raised dogfooding on this
 # changed function name and API endpoint to not be 'redirect' so that it didn't collide with the import of 'redirect' - raised PR to fix this
 
@@ -65,7 +67,7 @@ def redirecting2():
 
 
 
-# trying to trigger https://next.sonarqube.com/sonarqube/coding_rules?languages=py&types=VULNERABILITY&open=pythonsecurity%3AS3649
+# trying to trigger https://next.sonarqube.com/sonarqube/coding_rules?languages=py&types=VULNERABILITY&open=pythonsecurity%3AS3649 - not working
 
 @app.route('/example')
 def get_users():
@@ -76,7 +78,7 @@ def get_users():
     conn.cursor().execute(sql % (user)) # Noncompliant
 
 
-# going after Django version of issue https://next.sonarqube.com/sonarqube/coding_rules?languages=py&types=VULNERABILITY&open=pythonsecurity%3AS5146
+# going after Django version of issue https://next.sonarqube.com/sonarqube/coding_rules?languages=py&types=VULNERABILITY&open=pythonsecurity%3AS5146 - not working
 from django.http import HttpResponseRedirect
 
 def redirect_again():
@@ -86,3 +88,4 @@ def redirect_again():
 a = 10
 b =+ a
 
+my_string = "test"
