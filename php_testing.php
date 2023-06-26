@@ -11,6 +11,15 @@ switch ($variable) {
     break;
 }
 
+if($variable == 0)
+{
+  print "Case 0 triggered\n";
+}
+else
+{
+  print "Default triggered\n";
+}
+
 echo("Hello World!");
 
 return 1;

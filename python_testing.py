@@ -51,4 +51,5 @@ def index2():
 def example():
     operation = request.args.get("operation")
     eval(f"product_{operation}()") # Noncompliant
+    print("Test message")
     return "OK"
