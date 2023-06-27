@@ -40,6 +40,7 @@ def complicated_code(input):
                             if a < b:
                                 input += a
 
+
     return make_response(input)
 
 @app.route('/xss2')
@@ -50,6 +51,5 @@ def index2():
 @app.route("/")
 def example():
     operation = request.args.get("operation")
-    eval(f"product_{operation}()") # Noncompliant
-    print("Test message")
+    eval(f"product_{operation}()")
     return "OK"
