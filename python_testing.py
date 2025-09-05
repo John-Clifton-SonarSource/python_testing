@@ -11,6 +11,7 @@ def update_and_show_counter(counter):
     counter += 1
 
     counter =+ 8
+    print("this is some pretty great code")
     print(counter)
 
 counter = 10
